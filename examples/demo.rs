@@ -31,8 +31,11 @@ fn main() {
     println!("Performing mutation:");
     let mut state2 = state1.clone();
     {
-        let mut b = state2.get_mut(state2.root().child.get_ref());
+        let mut b = state2.get_mut(state2.child.get_ref());
         b.data.push(123);
+
+        //let mut c = state2.get_mut(state2.root().some_data);
+        //state2.get_mut(state2.root_ref()).some_data = 12;
     }
     println!("{:#?}", state2.root());
     println!("Old state still accesible:");

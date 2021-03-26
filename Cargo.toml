@@ -8,3 +8,10 @@ edition = "2018"
 
 [dependencies]
 im-rc = "15.0.0"
+<<<<<<< Updated upstream
+=======
+cod-node-derive = {path = "cod-node-derive"}
+
+[dev-dependencies]
+tuix = {git = "https://github.com/geom3trik/tuix", branch = "experiment"} 
+>>>>>>> Stashed changes

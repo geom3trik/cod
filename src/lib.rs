@@ -23,7 +23,7 @@ pub use im_rc as im;
 
 /// !!! should not derive Clone, needs special behavior for deep clones.
 /// -> currently broken
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Header {
     id: ID,
     parent_id: Option<ID>,
@@ -378,3 +378,9 @@ impl<'a, R: NodeClone + Clone, T: NodeClone> Drop for MutRef<'a, R, T> {
     }
 }
 
+impl<R: NodeClone + Clone> Deref for State<R> {
+    type Target = R;
+    fn deref(&self) -> &Self::Target {
+        self.root()
+    }
+}
